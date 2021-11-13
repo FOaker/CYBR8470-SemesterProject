@@ -61,8 +61,8 @@ As an Internet hacker in social engineering, I want to collect user location inf
 
 
 #### Diagrams
-#### mockup
-#### architecture diagram
+#### Mockup
+#### Architecture Diagram
 
 
 
