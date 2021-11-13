@@ -4,7 +4,7 @@ Project for CYBR8470
 
 ## Overview
 * [Executive Project Summary](#project-name)
-* [User Stories](#User Stories)
+* [UserStories](#UserStories)
 * [Diagrams](#Diagrams)
 * [Prototype](#Prototype)
 
@@ -15,7 +15,7 @@ Project for CYBR8470
 #### Getting Started
 #### License
 
-#### User stories
+#### Userstories
 
 #### User stories 1
 
