@@ -12,6 +12,8 @@ Project for CYBR8470
 #### ExecutiveSummary
 
 #### Installation
+python manage.py migrate
+python manage.py createsuperuser
 #### Getting Started
 #### License
 
