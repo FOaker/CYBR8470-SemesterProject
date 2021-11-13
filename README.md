@@ -3,13 +3,13 @@ Project for CYBR8470
 
 
 ## Overview
-* [Executive Project Summary](#Executive Summary)
-* [UserStories](#UserStories)
+* [Executive Project Summary](#ExecutiveSummary)
+* [User Stories](#UserStories)
 * [Diagrams](#Diagrams)
 * [Prototype](#Prototype)
 
 
-#### Executive Summary
+#### ExecutiveSummary
 
 #### Installation
 #### Getting Started
