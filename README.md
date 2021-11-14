@@ -88,7 +88,7 @@ As a cyber spoiler, I want to modify and delete the user's articles, which has a
 As an Internet hacker, I want to modify the user's password to get all the user's information in the blog.
 
 **Mitigations:**
-*  As an important password for identity verification, the password must be modified in a more secure way. A more common way is to send a password modification email to the user's pre-bound mailbox
+*  As an important password for identity verification, the password must be modified in a more secure way. A more common way is to send a password modification email to the user's pre-bound mailbox.
 
 
 
