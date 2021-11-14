@@ -9,6 +9,9 @@ Project for CYBR8470
 * [Prototype](#Prototype)
 
 
+
+
+
 #### ExecutiveSummary
 My web application is a blog site, why should I make a blog site? My idea is to share and record technical articles about cybersecurity here. Users can register, log in, and manage their own articles. You can use it as your own personal collection, and publish your own articles on your blog in a certain chronological order, catalog or label. Blogs are completely personal-centric. Everyone’s blog is different, and a person’s personality can be seen from each person’s blog. Through blogs and articles, you can make many like-minded bloggers. Blog is a good platform for self-exhibition and communication. Through this platform, you can make many blog friends, especially cybersecurity friends.
 
