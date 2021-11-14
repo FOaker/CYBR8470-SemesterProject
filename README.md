@@ -14,16 +14,24 @@ My web application is a blog site, why should I make a blog site? My idea is to 
 
 #### Installation
 git clone https://github.com/FOaker/CYBR8470-SemesterProject.git
+
 python manage.py migration
+
 python manage.py migrate
+
 python manage.py createsuperuser
+
 Later on deploying in docker container
+
 
 
 #### Getting Started
 python manage.py migration
+
 python manage.py migrate
+
 python manage.py createsuperuser
+
 website：127.0.0.1/8000
 
 
