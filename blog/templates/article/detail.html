@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-<!-- 写入 base.html 中定义的 title -->
+
 {% block title %}
     Article details
 {% endblock title %}
@@ -9,14 +9,40 @@
 {% block content %}
 
 
-<div class="container">
-    <div class="row">
-        <h1 class="col-12 mt-4 mb-4">{{ article.title }}</h1>
-        <div class="col-12 alert alert-success">Author：{{ article.author }}</div>
-        <div class="col-12">
-            <p>{{ article.body }}</p>
+
+    <div class="container">
+        <div class="row">
+            <h1 class="col-12 mt-4 mb-4">{{ article.title }}</h1>
+            <div class="col-12 alert alert-success">author：{{ article.author }}
+                · <a href="#" onclick="confirm_safe_delete()">Delete Article</a>
+            </div>
+            <div class="col-12">
+                <p>{{ article.body }}</p>
+            </div>
         </div>
     </div>
-</div>
+
+    <form
+            style="display:none;"
+            id="safe_delete"
+            action="{% url 'article:article_safe_delete' article.id %}"
+            method="POST"
+    >
+        {% csrf_token %}
+        <button type="submit">Send</button>
+    </form>
+
+    <script>
+        function confirm_safe_delete() {
+            layer.open({
+                title: "Inform to delete",
+                content: "Are you sure to delete？",
+                yes: function (index, layero) {
+                    $('form#safe_delete button').click();
+                    layer.close(index);
+                },
+            })
+        }
+    </script>
 
 {% endblock content %}
