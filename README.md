@@ -106,4 +106,4 @@ As an Internet hacker, I want to modify the user's password to get all the user'
 
 
 #### Prototype
-check the code [This link to code](/blog/).**
+**Check the code [This link to code](/blog/).**
