@@ -97,7 +97,7 @@ As an Internet hacker, I want to modify the user's password to get all the user'
 
 #### Diagrams
 #### Mockup
-![](/pic/Blog mockup.png)
+![](/pic/2.png)
 #### Architecture Diagram
 
 
