@@ -90,8 +90,11 @@ As an Internet hacker, I want to modify the user's password to get all the user'
 **Mitigations:**
 *  As an important password for identity verification, the password must be modified in a more secure way. A more common way is to send a password modification email to the user's pre-bound mailbox.
 
+#### Misuser stories 3
+As an Internet hacker, I want to conduct CSRF attacks to obtain user information.
 
-
+**Mitigations:**
+*  When a user visits a django site, there is a hidden field csrf_token in the form that django feedbacks to the user. This value is randomly generated on the server side and is different every time; Before the backend processes the POST request, django will verify whether the csrf_token in the requested cookie is consistent with the csrf_token in the form. If they are consistent, the request is legal, otherwise the request may be from a CSRF attack, and a 403 server is forbidden is returned.
 
 
 
