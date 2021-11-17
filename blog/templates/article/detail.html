@@ -15,6 +15,7 @@
             <h1 class="col-12 mt-4 mb-4">{{ article.title }}</h1>
             <div class="col-12 alert alert-success">author：{{ article.author }}
                 · <a href="#" onclick="confirm_safe_delete()">Delete Article</a>
+                 · <a href="{% url "article:article_update" article.id %}">Update Article</a>
             </div>
             <div class="col-12">
                 <p>{{ article.body }}</p>
