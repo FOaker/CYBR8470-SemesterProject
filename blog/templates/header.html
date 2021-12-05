@@ -16,6 +16,7 @@
                             {{ user.username }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#" onclick="user_delete()">Delete User</a>
                             <a class="dropdown-item" href='{% url "userprofile:logout" %}'>Log out</a>
                         </div>
                     </li>
@@ -23,6 +24,30 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'userprofile:login' %}">Login</a>
                     </li>
+                {% endif %}
+
+                {% if user.is_authenticated %}
+                    <form
+                            style="display:none;"
+                            id="user_delete"
+                            action="{% url 'userprofile:delete' user.id %}"
+                            method="POST"
+                    >
+                        {% csrf_token %}
+                        <button type="submit">Send</button>
+                    </form>
+                    <script>
+                        function user_delete() {
+                            layer.open({
+                                title: "Inform Delete",
+                                content: "Are you sure to delete user profile?？",
+                                yes: function (index, layero) {
+                                    $('form#user_delete button').click();
+                                    layer.close(index);
+                                },
+                            })
+                        }
+                    </script>
                 {% endif %}
             </ul>
         </div>

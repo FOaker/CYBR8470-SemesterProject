@@ -2,6 +2,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import UserLoginForm, UserRegisterForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 
 def user_login(request):
@@ -47,3 +49,17 @@ def user_register(request):
         return render(request, 'userprofile/register.html', context)
     else:
         return HttpResponse("Please use GET Or POST method")
+
+
+@login_required(login_url='/userprofile/login/')
+def user_delete(request, id):
+    if request.method == 'POST':
+        user = User.objects.get(id=id)
+        if request.user == user:
+            logout(request)
+            user.delete()
+            return redirect("article:article_list")
+        else:
+            return HttpResponse("You don't have permission to delete article")
+    else:
+        return HttpResponse("Need POST request")
