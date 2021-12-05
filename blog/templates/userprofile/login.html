@@ -1,23 +1,26 @@
 {% extends "base.html" %} {% load static %}
 {% block title %} Login {% endblock title %}
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <br>
-            <form method="post" action=".">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" name="username">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <br>
+                <h5>Don't have an account yet?</h5>
+                <h5>Click <a href='{% url "userprofile:register" %}'>Register Account </a> Join us！</h5>
+                <br>
+                <form method="post" action=".">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 {% endblock content %}
