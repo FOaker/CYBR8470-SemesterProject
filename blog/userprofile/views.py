@@ -1,9 +1,11 @@
 from django.contrib.auth import authenticate, login, logout
+
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import UserLoginForm, UserRegisterForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+
+from userprofile.forms import UserLoginForm, UserRegisterForm
 
 
 def user_login(request):
@@ -63,3 +65,5 @@ def user_delete(request, id):
             return HttpResponse("You don't have permission to delete article")
     else:
         return HttpResponse("Need POST request")
+
+

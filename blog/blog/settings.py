@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'password_reset',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -37,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'article',
     'userprofile',
-  #  'password_reset',
 ]
 
 MIDDLEWARE = [
@@ -120,4 +120,9 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_HOST_USER = '704326849@qq.com'
+EMAIL_HOST_PASSWORD = 'xllwfolrjzhrbfig'
+EMAIL_PORT = 25
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = '704326849@qq.com'

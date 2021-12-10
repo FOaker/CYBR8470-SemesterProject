@@ -21,3 +21,5 @@ class UserRegisterForm(forms.ModelForm):
             return data.get('password')
         else:
             raise forms.ValidationError("Password didn't match, try again")
+
+
