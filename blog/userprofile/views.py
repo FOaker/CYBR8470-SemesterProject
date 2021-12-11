@@ -6,6 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
 from userprofile.forms import UserLoginForm, UserRegisterForm
+from .forms import ProfileForm
+from .models import Profile
 
 
 def user_login(request):
@@ -67,3 +69,31 @@ def user_delete(request, id):
         return HttpResponse("Need POST request")
 
 
+@login_required(login_url='/userprofile/login/')
+def profile_edit(request, id):
+    user = User.objects.get(id=id)
+    if Profile.objects.filter(user_id=id).exists():
+        profile = Profile.objects.get(user_id=id)
+    else:
+        profile = Profile.objects.create(user=user)
+
+    if request.method == 'POST':
+        if request.user != user:
+            return HttpResponse("You don't have permission to modify this. ")
+
+        profile_form = ProfileForm(data=request.POST)
+        if profile_form.is_valid():
+            profile_cd = profile_form.cleaned_data
+            profile.phone = profile_cd['phone']
+            profile.bio = profile_cd['bio']
+            profile.save()
+            return redirect("userprofile:edit", id=id)
+        else:
+            return HttpResponse("register list error, please try again. ")
+
+    elif request.method == 'GET':
+        profile_form = ProfileForm()
+        context = {'profile_form': profile_form, 'profile': profile, 'user': user}
+        return render(request, 'userprofile/edit.html', context)
+    else:
+        return HttpResponse("Please use GET or POST to request data. ")

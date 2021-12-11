@@ -1,4 +1,5 @@
 # import markdown
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from article.models import ArticlePost
@@ -23,12 +24,13 @@ def article_detail(request, id):
     return render(request, 'article/detail.html', context)
 
 
+@login_required(login_url='/userprofile/login/')
 def article_create(request):
     if request.method == "POST":
         article_post_form = ArticlePostForm(data=request.POST)
         if article_post_form.is_valid():
             new_article = article_post_form.save(commit=False)
-            new_article.author = User.objects.get(id=1)
+            new_article.author = User.objects.get(id=request.user.id)
             new_article.save()
             return redirect("article:article_list")
         else:
@@ -39,6 +41,7 @@ def article_create(request):
         return render(request, 'article/create.html', context)
 
 
+@login_required(login_url='/userprofile/login/')
 def article_safe_delete(request, id):
     if request.method == 'POST':
         article = ArticlePost.objects.get(id=id)
@@ -48,6 +51,7 @@ def article_safe_delete(request, id):
         return HttpResponse("Only allow post requests")
 
 
+@login_required(login_url='/userprofile/login/')
 def article_update(request, id):
     article = ArticlePost.objects.get(id=id)
     if request.method == "POST":

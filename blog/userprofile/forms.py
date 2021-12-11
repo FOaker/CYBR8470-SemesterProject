@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-
+from .models import Profile
 
 class UserLoginForm(forms.Form):
     username = forms.CharField()
@@ -23,3 +23,7 @@ class UserRegisterForm(forms.ModelForm):
             raise forms.ValidationError("Password didn't match, try again")
 
 
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('phone', 'avatar', 'bio')
