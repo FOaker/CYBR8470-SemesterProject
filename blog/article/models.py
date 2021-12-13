@@ -20,6 +20,8 @@ class ArticlePost(models.Model):
     # Article update time
     updated = models.DateTimeField(auto_now=True)
 
+    total_views = models.PositiveIntegerField(default=0)
+
     class Meta:
         # reverse order
         ordering = ('-created',)

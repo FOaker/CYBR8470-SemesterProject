@@ -20,6 +20,8 @@ def article_detail(request, id):
     #             #'markdown.extensions.extra',
     #             #'markdown.extensions.codehilite',
     #             ])
+    article.total_views += 1
+    article.save(update_fields=['total_views'])
     context = {'article': article}
     return render(request, 'article/detail.html', context)
 
@@ -43,8 +45,11 @@ def article_create(request):
 
 @login_required(login_url='/userprofile/login/')
 def article_safe_delete(request, id):
+
     if request.method == 'POST':
         article = ArticlePost.objects.get(id=id)
+        if request.user != article.author:
+            return HttpResponse("Sorry, You can't modify this article")
         article.delete()
         return redirect("article:article_list")
     else:
@@ -54,6 +59,8 @@ def article_safe_delete(request, id):
 @login_required(login_url='/userprofile/login/')
 def article_update(request, id):
     article = ArticlePost.objects.get(id=id)
+    if request.user != article.author:
+        return HttpResponse("Sorry, You can't modify this article")
     if request.method == "POST":
         article_post_form = ArticlePostForm(data=request.POST)
         if article_post_form.is_valid():
