@@ -1,10 +1,12 @@
 from django.contrib.auth import authenticate, login, logout
+from django.core.paginator import Paginator
 
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
+from article.models import ArticlePost
 from userprofile.forms import UserLoginForm, UserRegisterForm
 from .forms import ProfileForm
 from .models import Profile
@@ -99,3 +101,12 @@ def profile_edit(request, id):
         return render(request, 'userprofile/edit.html', context)
     else:
         return HttpResponse("Please use GET or POST to request data. ")
+
+
+def article_list(request):
+    article_list = ArticlePost.objects.all()
+    paginator = Paginator(article_list, 1)
+    page = request.GET.get('page')
+    articles = paginator.get_page(page)
+    context = {'articles': articles}
+    return render(request, 'article/list.html', context)
