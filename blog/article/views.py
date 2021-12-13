@@ -4,30 +4,49 @@ from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from article.models import ArticlePost
+from comment.models import Comment
 from .forms import ArticlePostForm
 from django.contrib.auth.models import User
+from django.db.models import Q
 
 
 def article_list(request):
+    search = request.GET.get('search')
+    order = request.GET.get('order')
 
-        if request.GET.get('order') == 'total_views':
+    if search:
+        if order == 'total_views':
+
+            article_list = ArticlePost.objects.filter(
+                Q(title__icontains=search) |
+                Q(body__icontains=search)
+            ).order_by('-total_views')
+        else:
+            article_list = ArticlePost.objects.filter(
+                Q(title__icontains=search) |
+                Q(body__icontains=search)
+            )
+    else:
+
+        search = ''
+        if order == 'total_views':
             article_list = ArticlePost.objects.all().order_by('-total_views')
-            order = 'total_views'
         else:
             article_list = ArticlePost.objects.all()
-            order = 'normal'
 
-        paginator = Paginator(article_list, 3)
-        page = request.GET.get('page')
-        articles = paginator.get_page(page)
+    paginator = Paginator(article_list, 3)
+    page = request.GET.get('page')
+    articles = paginator.get_page(page)
 
-        context = {'articles': articles, 'order': order}
+    # 增加 search 到 context
+    context = {'articles': articles, 'order': order, 'search': search}
 
-        return render(request, 'article/list.html', context)
+    return render(request, 'article/list.html', context)
 
 
 def article_detail(request, id):
     article = ArticlePost.objects.get(id=id)
+    comments = Comment.objects.filter(article=id)
     # article.body = markdown.markdown(article.body,
     #             extensions=[
     #             #'markdown.extensions.extra',
@@ -35,7 +54,7 @@ def article_detail(request, id):
     #             ])
     article.total_views += 1
     article.save(update_fields=['total_views'])
-    context = {'article': article}
+    context = {'article': article, 'comments': comments}
     return render(request, 'article/detail.html', context)
 
 

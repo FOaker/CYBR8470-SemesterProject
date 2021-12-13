@@ -20,10 +20,73 @@
                     · <a href="{% url "article:article_update" article.id %}">Update Article</a>
                 {% endif %}
             </div>
-            <div class="col-12">
-                <p>{{ article.body }}</p>
+
+            <div class="col-3 mt-4">
+                <h4><strong>content</strong></h4>
+                <hr>
+                <div>
+                    {{ toc|safe }}
+                </div>
             </div>
         </div>
+        <div class="col-12">
+            <p>{{ article.body }}</p>
+        </div>
+
+        <hr>
+        {% if user.is_authenticated %}
+            <div>
+                <form
+                        action="{% url 'comment:post_comment' article.id %}"
+                        method="POST"
+                >
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="body">
+                            <strong>
+                                To Comment：
+                            </strong>
+                        </label>
+                        <textarea
+                                type="text"
+                                class="form-control"
+                                id="body"
+                                name="body"
+                                rows="2"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary ">Send</button>
+                </form>
+            </div>
+            <br>
+        {% else %}
+            <br>
+            <h5 class="row justify-content-center">
+                Please<a href="{% url 'userprofile:login' %}">login</a>to reply
+            </h5>
+            <br>
+        {% endif %}
+
+
+
+        <h4>Total have {{ comments.count }} comment</h4>
+        <div>
+            {% for comment in comments %}
+                <hr>
+                <p>
+                    <strong style="color: pink">
+                        {{ comment.user }}
+                    </strong> at
+                    <span style="color: green">
+                    {{ comment.created|date:"Y-m-d H:i:s" }}
+                </span> said：
+                </p>
+                <pre style="font-family: inherit; font-size: 1em;">
+{{ comment.body }}</pre>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
     </div>
 
     <form

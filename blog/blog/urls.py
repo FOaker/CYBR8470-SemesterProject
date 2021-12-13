@@ -24,6 +24,7 @@ urlpatterns = [
     path('article/', include('article.urls', namespace='article')),
     path('userprofile/', include('userprofile.urls', namespace='userprofile')),
     path('password-reset/', include('password_reset.urls')),
+    path('comment/', include('comment.urls', namespace='comment')),
     # url(r'^captcha/', include('captcha.urls')),
 ]
 
