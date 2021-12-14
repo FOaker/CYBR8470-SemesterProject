@@ -10,11 +10,11 @@ Project for CYBR8470
 
 **Check the website register [This link to raw Design](/pic/register.png).**
 
-**Check the website search and page number [This link to raw Design](/pic/search and second page.png).**
+**Check the website search and page number [This link to raw Design](/pic/search.png).**
 
 **Check the website userinfo [This link to raw Design](/pic/userinfo.png).**
 
-**Check the website article [This link to raw Design](/pic/Write Article.png).**
+**Check the website article [This link to raw Design](/pic/article.png).**
 
 
 ## Overview
