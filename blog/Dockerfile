@@ -7,3 +7,5 @@ WORKDIR /var/www/html/blog
 ADD . /var/www/html/blog
 RUN pip install Pillow
 RUN pip install -r requirements.txt
+RUN sed -i 's/\r//' ./start.sh
+RUN chmod +x ./start.sh
