@@ -1,6 +1,13 @@
 # CYBR8470-SemesterProject
 Project for CYBR8470
-
+**Check the website tree [This link to raw Design](/pic/Tree.png).**
+**Check the website content [This link to raw Design](/pic/content.png).**
+**Check the website front [This link to raw Design](/pic/front.png).**
+**Check the website recover [This link to raw Design](/pic/recover.png).**
+**Check the website register [This link to raw Design](/pic/register.png).**
+**Check the website search and page number [This link to raw Design](/pic/search and second page.png).**
+**Check the website userinfo [This link to raw Design](/pic/userinfo.png).**
+**Check the website article [This link to raw Design](/pic/Write Article.png).**
 
 ## Overview
 * [Executive Project Summary](#ExecutiveSummary)
