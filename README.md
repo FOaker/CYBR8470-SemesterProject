@@ -25,6 +25,7 @@ Project for CYBR8470
 * [Executive Project Summary](#ExecutiveSummary)
 * [User Stories](#UserStories)
 * [Diagrams](#Diagrams)
+* [Hardening](#Hardening)
 * [Prototype](#Prototype)
 
 
@@ -154,7 +155,7 @@ As an Internet hacker, I want to conduct CSRF attacks to obtain user information
 ![](/pic/4.png)
 **Or check the raw resource [This link to raw Design](/pic/4.png).**
 
-
+#### Hardening
 
 #### Prototype
 **Check the code [This link to code](/blog/).**
