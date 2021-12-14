@@ -192,7 +192,7 @@ use {% csrf_token %} to avoid xss
 
 
 #### Deployment
-
+![](/pic/deploy.png)
 
 
 #### Prototype
