@@ -6,9 +6,9 @@ Project for CYBR8470
 
 **Check the website content [This link to raw Design](/pic/content.png).**
 
-**Check the website front [This link to raw Design](/pic/front.png).**
+**Check the website front page [This link to raw Design](/pic/front.png).**
 
-**Check the website recover [This link to raw Design](/pic/recover.png).**
+**Check the website recover password [This link to raw Design](/pic/recover.png).**
 
 **Check the website register [This link to raw Design](/pic/register.png).**
 
@@ -16,7 +16,9 @@ Project for CYBR8470
 
 **Check the website userinfo [This link to raw Design](/pic/userinfo.png).**
 
-**Check the website article [This link to raw Design](/pic/article.png).**
+**Check the website article writing [This link to raw Design](/pic/article.png).**
+
+**Check the website admin [This link to raw Design](/pic/root.png).**
 
 
 ## Overview
