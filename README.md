@@ -26,6 +26,7 @@ Project for CYBR8470
 * [User Stories](#UserStories)
 * [Diagrams](#Diagrams)
 * [Hardening](#Hardening)
+* [Deployment](#Deployment)
 * [Prototype](#Prototype)
 
 
@@ -188,6 +189,9 @@ use {% csrf_token %} to avoid csrf
 8. comment function
 
 use {% csrf_token %} to avoid xss
+
+
+#### Deployment
 
 
 
