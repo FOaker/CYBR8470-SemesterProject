@@ -157,21 +157,36 @@ As an Internet hacker, I want to conduct CSRF attacks to obtain user information
 
 #### Hardening
 1. Use email authentication（API：Django-password-reset）to change password to ensure the integrity of the password.
+
 2. Need to log in to operate the addition, deletion, and modification of the database
+
 Use {% if user == article.author %} or {% if user.is_authenticated %}
+
 Use if request.user != article.author:
+
         return HttpResponse("Don't have permission")
+        
 3. User account password matching
+
 user = authenticate(username=data['username'], password=data['password'])
+
 4. Inclue super user (admin)
+
 5. Verify login decorator
+
 import django.contrib.auth.decorators import login_required
 @login_required(login_url='/userprofile/login/')
+
 6. HTML cleaned
+
 Use .cleaned_data to html
+
 7. upload function
+
 use {% csrf_token %} to avoid csrf
+
 8. comment function
+
 use {% csrf_token %} to avoid xss
 
 
