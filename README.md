@@ -43,7 +43,7 @@ cd CYBR8470-SemesterProject/blog/blog
 vi settings.py(orin Atom)
 
 ALLOWED_HOSTS = ['192.168.64.1', 'localhost']
-Replace ‘137.48.185.230’ with your ip address.
+Replace ‘192.168.64.1’ with your ip address.
 to get your server ip, you need to open a Powershell and type (use ifconfig instead for Mac/Linux):
 ipconfig --all
 find your ipv4 address on the ip record for the ethernet card attached to your machine
