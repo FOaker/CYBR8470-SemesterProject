@@ -16,6 +16,9 @@ Project for CYBR8470
 My web application is a blog site, why should I make a blog site? My idea is to share and record technical articles about cybersecurity here. Users can register, log in, and manage their own articles. You can use it as your own personal collection, and publish your own articles on your blog in a certain chronological order, catalog or label. Blogs are completely personal-centric. Everyone’s blog is different, and a person’s personality can be seen from each person’s blog. Through blogs and articles, you can make many like-minded bloggers. Blog is a good platform for self-exhibition and communication. Through this platform, you can make many blog friends, especially cybersecurity friends.
 
 #### Installation
+#### Option 1:
+In your terminal or Pycharm
+
 git clone https://github.com/FOaker/CYBR8470-SemesterProject.git
 
 python manage.py migration
@@ -24,18 +27,44 @@ python manage.py migrate
 
 python manage.py createsuperuser
 
-Later on deploying in docker container
+python manage.py runserver
 
+#### Option 2(some problems with docker configuration):
+In Docker
 
+git clone https://github.com/FOaker/CYBR8470-SemesterProject.git
 
-#### Getting Started
-python manage.py migration
+wget https://github.com/twbs/bootstrap/releases/download/v4.1.3/bootstrap-4.1.3-dist.zip
 
-python manage.py migrate
+unzip bootstrap and put two files jquery.js and popper.js in static file
+
+cd CYBR8470-SemesterProject/blog/blog
+
+vi settings.py(orin Atom)
+
+ALLOWED_HOSTS = ['192.168.64.1', 'localhost']
+Replace ‘137.48.185.230’ with your ip address.
+to get your server ip, you need to open a Powershell and type (use ifconfig instead for Mac/Linux):
+ipconfig --all
+find your ipv4 address on the ip record for the ethernet card attached to your machine
+alternatively, you can go to http://google.com and search for ‘my ip address
+
+docker compose up
+
+sudo docker run -it -d --name mysite -p 80:8000 log_web(Use commend: "docker images" check your image and replace)
+
+sudo docker exec -it mysite /bin/bash 
 
 python manage.py createsuperuser
 
-website：127.0.0.1/8000
+sh start.sh
+
+http://your_server_ip check website
+
+
+#### Getting Started
+website：127.0.0.1/article/article-list/
+Register your account
 
 
 #### License
