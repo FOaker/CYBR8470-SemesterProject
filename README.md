@@ -192,8 +192,9 @@ use {% csrf_token %} to avoid xss
 
 
 #### Deployment
+Deploy in AWS Elastic Beanstalk
 ![](/pic/deploy.png)
-
+http://django-env.eba-we2t3r5u.us-west-2.elasticbeanstalk.com/
 
 #### Prototype
 **Check the code [This link to code](/blog/).**
