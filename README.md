@@ -27,6 +27,7 @@ Project for CYBR8470
 * [Diagrams](#Diagrams)
 * [Hardening](#Hardening)
 * [Deployment](#Deployment)
+* [Presentation](#Presentation)
 * [Prototype](#Prototype)
 
 
@@ -195,6 +196,10 @@ use {% csrf_token %} to avoid xss
 Deploy in AWS Elastic Beanstalk
 ![](/pic/deploy.png)
 http://django-env.eba-we2t3r5u.us-west-2.elasticbeanstalk.com/
+
+
+#### Deployment
+https://unomaha.zoom.us/rec/share/cDm1fxIc0JGr8-wHd6x2Fe9CFErhetyMsramlBoqFgxR3ksByGwGNFAKgPeDNH0.pegN1VXwcrm47X3J?startTime=1639643902000
 
 #### Prototype
 **Check the code [This link to code](/blog/).**
