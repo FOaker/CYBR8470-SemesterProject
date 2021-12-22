@@ -90,11 +90,6 @@ Register your account
 
 
 #### License
-The MIT License (MIT)
-
-Copyright (c) Matthew L. Hale 2017
-
-insert MIT License text here
 
 
 
